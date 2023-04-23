@@ -6,7 +6,7 @@ r = open('config.json')
 load = json.load(r)
 
 intents = discord.Intents.default()
-intents.messeage_content = True
+intents.message_content = True
 bot = commands.Bot(command_prefix=load['prefix'], intents=intents)
 
 @bot.event
