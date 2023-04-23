@@ -5,7 +5,9 @@ import json
 r = open('config.json')
 load = json.load(r)
 
-bot = commands.Bot(command_prefix=load['prefix'])
+intents = discord.Intents.default()
+intents.messeage_content = True
+bot = commands.Bot(command_prefix=load['prefix'], intents=intents)
 
 @bot.event
 async def on_ready():
