@@ -37,4 +37,16 @@ async def hello(ctx):
     view.add_item(button)
     await ctx.send("Hi!", view=view)
 
+# リアクションを増やした時に実行される
+@bot.event
+async def on_raw_reaction_add(payload):
+    print("reaction add func start")
+    print("reaction add func end")
+
+# リアクションを減らした時に実行される
+@bot.event
+async def on_raw_reaction_remove(payload):
+    print("reaction remove func start")
+    print("reaction remove func end")
+
 bot.run(load['token'])
