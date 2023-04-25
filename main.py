@@ -1,5 +1,4 @@
 import discord
-from discord.ui import Button, View
 from discord.ext import commands
 import json
 
@@ -42,7 +41,7 @@ async def on_raw_reaction_add(payload):
 
     message_id = payload.message_id
     # load['MESSAGE_ID]はdiscordの特定のメッセージを指定してるIDです。（config.jsonに記載します）
-    if message_id == load['MESSAGE_ID']:
+    if message_id == int(load['MESSAGE_ID']):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
 
@@ -68,6 +67,7 @@ async def on_raw_reaction_add(payload):
             role = discord.utils.get(guild.roles, name="plan")
         else:
             print("emoji not found.")
+            role = None
 
         if role is not None:
             member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
@@ -87,7 +87,7 @@ async def on_raw_reaction_remove(payload):
 
     message_id = payload.message_id
     # load['MESSAGE_ID]はdiscordの特定のメッセージを指定してるIDです。（config.jsonに記載します）
-    if message_id == load['MESSAGE_ID']:
+    if message_id == int(load['MESSAGE_ID']):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
 
@@ -113,6 +113,7 @@ async def on_raw_reaction_remove(payload):
             role = discord.utils.get(guild.roles, name="plan")
         else:
             print("emoji not found.")
+            role = None
 
         if role is not None:
             member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
