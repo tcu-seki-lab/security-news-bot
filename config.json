@@ -1,4 +1,5 @@
 {
-    "token": "トークンID",
-    "prefix": "!"
+    "token": "write a TOKEN",
+    "prefix": "!",
+    "MESSAGE_ID": "write a MESSAGE_ID"
 }
