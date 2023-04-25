@@ -46,12 +46,28 @@ async def on_raw_reaction_add(payload):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
 
-        # "python"という名の絵文字が追加されたら
-        if payload.emoji.name == "python":
-            print("-" * 50 + "python" + "-" * 50)
-            role = discord.utils.get(guild.roles, name="python")
+        # "environment"という名の絵文字が追加されたら
+        if payload.emoji.name == "environment":
+            print("-" * 50 + "environment" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="environment")
+        # "pr"という名の絵文字が追加されたら
+        elif payload.emoji.name == "pr":
+            print("-" * 50 + "pr" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="pr")
+        # "seminar"という名の絵文字が追加されたら
+        elif payload.emoji.name == "seminar":
+            print("-" * 50 + "seminar" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="seminar")
+        # "event"という名の絵文字が追加されたら
+        elif payload.emoji.name == "event":
+            print("-" * 50 + "event" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="event")
+        # "plan"という名の絵文字が追加されたら
+        elif payload.emoji.name == "plan":
+            print("-" * 50 + "plan" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="plan")
         else:
-            role = discord.utils.get(guild.roles, name=payload.emoji.name)
+            print("emoji not found.")
 
         if role is not None:
             member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
@@ -75,12 +91,28 @@ async def on_raw_reaction_remove(payload):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
 
-        # "python"という名の絵文字が追加されたら
-        if payload.emoji.name == "python":
-            print("-" * 50 + "python" + "-" * 50)
-            role = discord.utils.get(guild.roles, name="python")
+        # "environment"という名の絵文字が追加されたら
+        if payload.emoji.name == "environment":
+            print("-" * 50 + "environment" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="environment")
+        # "pr"という名の絵文字が追加されたら
+        elif payload.emoji.name == "pr":
+            print("-" * 50 + "pr" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="pr")
+        # "seminar"という名の絵文字が追加されたら
+        elif payload.emoji.name == "seminar":
+            print("-" * 50 + "seminar" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="seminar")
+        # "event"という名の絵文字が追加されたら
+        elif payload.emoji.name == "event":
+            print("-" * 50 + "event" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="event")
+        # "plan"という名の絵文字が追加されたら
+        elif payload.emoji.name == "plan":
+            print("-" * 50 + "plan" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="plan")
         else:
-            role = discord.utils.get(guild.roles, name=payload.emoji.name)
+            print("emoji not found.")
 
         if role is not None:
             member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
