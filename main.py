@@ -35,6 +35,8 @@ async def hello(ctx):
     view.add_item(button)
     await ctx.send("Hi!", view=view)
 
+    MESSAGE_ID = 1100436710329958522
+
 # リアクションを増やした時に実行される
 @bot.event
 async def on_raw_reaction_add(payload):
@@ -64,10 +66,9 @@ async def on_raw_reaction_add(payload):
                 await member.add_roles(role)
     """
     # こっちを使ってください↓
-    """
+    
     message_id = payload.message_id
     # ↓これはdiscordの特定のメッセージを指定してるIDです
-    MESSAGE_ID = 1100383101470920727
     if message_id == MESSAGE_ID:
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
@@ -87,7 +88,7 @@ async def on_raw_reaction_add(payload):
             print("Member not found.")
     else:
         print("Role not found.")
-    """
+    
 
     print("reaction add func end")
 
