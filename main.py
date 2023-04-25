@@ -42,31 +42,6 @@ MESSAGE_ID = 1100436710329958522
 async def on_raw_reaction_add(payload):
     print("reaction add func start")
 
-    """
-    # guild内のメンバーを列挙
-    for member in bot.get_all_members():
-        print(member)
-
-    # guildの指定（べんきょうします）
-    guild = discord.utils.find(lambda g: g.id == payload.guild_id, bot.guilds)
-    print("guild->>>>" + str(guild))
-
-    # 指定のコメントにpython絵文字をつけたら条件成立
-    if payload.emoji.name == "python" and payload.message_id == 1100383101470920727:
-        print("guild role->>>>" + str(guild.roles))
-        print("guild member->>>>" + str(guild.members))
-        # guild.rolesの中からnameがpythonのやつを取得
-        role = discord.utils.get(guild.roles, name="python")
-        print("role->>>>" + str(role))
-        if role is not None:
-            print("PAYLOAD->>>>" + str(payload))
-            member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
-            print("member->>>>" + str(member))
-            if member is not None:
-                await member.add_roles(role)
-    """
-    # こっちを使ってください↓
-    
     message_id = payload.message_id
     # ↓これはdiscordの特定のメッセージを指定してるIDです
     if message_id == MESSAGE_ID:
@@ -89,7 +64,6 @@ async def on_raw_reaction_add(payload):
     else:
         print("Role not found.")
     
-
     print("reaction add func end")
 
 # リアクションを減らした時に実行される
