@@ -35,7 +35,7 @@ async def hello(ctx):
     view.add_item(button)
     await ctx.send("Hi!", view=view)
 
-    MESSAGE_ID = 1100436710329958522
+MESSAGE_ID = 1100436710329958522
 
 # リアクションを増やした時に実行される
 @bot.event
