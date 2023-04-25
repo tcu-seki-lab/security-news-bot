@@ -10,11 +10,11 @@ load = json.load(r)
 # Botの設定を行う
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=load['prefix'], intents=intents)
-
+"""
 # ボタンが押された時にメッセージを返す関数
 async def button_callback(interaction):
     await interaction.response.send_message("Hi!")
-
+"""
 # 起動シーケンス
 @bot.event
 async def on_ready():
@@ -24,7 +24,7 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     await ctx.send("pong")
-
+"""
 # Helloのリアクションコマンド
 @bot.command()
 async def hello(ctx):
@@ -34,7 +34,7 @@ async def hello(ctx):
     view = View()
     view.add_item(button)
     await ctx.send("Hi!", view=view)
-
+"""
 # リアクションを増やした時に実行される
 @bot.event
 async def on_raw_reaction_add(payload):
