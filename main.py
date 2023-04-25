@@ -35,16 +35,14 @@ async def hello(ctx):
     view.add_item(button)
     await ctx.send("Hi!", view=view)
 
-MESSAGE_ID = 1100436710329958522
-
 # リアクションを増やした時に実行される
 @bot.event
 async def on_raw_reaction_add(payload):
     print("reaction add func start")
 
     message_id = payload.message_id
-    # ↓これはdiscordの特定のメッセージを指定してるIDです
-    if message_id == MESSAGE_ID:
+    # load['MESSAGE_ID]はdiscordの特定のメッセージを指定してるIDです。（config.jsonに記載します）
+    if message_id == load['MESSAGE_ID']:
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
 
@@ -70,6 +68,28 @@ async def on_raw_reaction_add(payload):
 @bot.event
 async def on_raw_reaction_remove(payload):
     print("reaction remove func start")
+
+    message_id = payload.message_id
+    # load['MESSAGE_ID]はdiscordの特定のメッセージを指定してるIDです。（config.jsonに記載します）
+    if message_id == load['MESSAGE_ID']:
+        guild_id = payload.guild_id
+        guild = discord.utils.find(lambda g: g.id == guild_id, bot.guilds)
+
+        # "python"という名の絵文字が追加されたら
+        if payload.emoji.name == "python":
+            print("-" * 50 + "python" + "-" * 50)
+            role = discord.utils.get(guild.roles, name="python")
+        else:
+            role = discord.utils.get(guild.roles, name=payload.emoji.name)
+
+        if role is not None:
+            member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
+            await member.remove_roles(role)
+            print("done")
+        else:
+            print("Member not found.")
+    else:
+        print("Role not found.")
 
     print("reaction remove func end")
 
