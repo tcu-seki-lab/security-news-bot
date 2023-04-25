@@ -1,5 +1,5 @@
 {
-    "token": "write a TOKEN",
-    "prefix": "!",
+    "TOKEN": "write a TOKEN",
+    "PREFIX": "!",
     "MESSAGE_ID": "write a MESSAGE_ID"
 }

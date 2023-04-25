@@ -8,7 +8,7 @@ load = json.load(r)
 
 # Botの設定を行う
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix=load['prefix'], intents=intents)
+bot = commands.Bot(command_prefix=load['PREFIX'], intents=intents)
 """
 # ボタンが押された時にメッセージを返す関数
 async def button_callback(interaction):
@@ -126,4 +126,4 @@ async def on_raw_reaction_remove(payload):
 
     print("reaction remove func end")
 
-bot.run(load['token'])
+bot.run(load['TOKEN'])
